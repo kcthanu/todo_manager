@@ -19,9 +19,8 @@ class UsersController < ApplicationController
   def login
     email = params[:email]
     password = params[:password]
-    text = User.where("email = ? and password > ?", email, password).first == nil ? false : true
     
-    render plain: "#{text}"
+    user = User.where(email: email, password: password)
+    render plain: user.exists
   end
-
 end
