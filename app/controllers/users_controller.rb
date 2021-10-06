@@ -21,6 +21,6 @@ class UsersController < ApplicationController
     password = params[:password]
     
     user = User.where(email: email, password: password)
-    render plain: user.exists
+    render plain: user.exists?
   end
 end
